@@ -1,0 +1,907 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Page Setup */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* from here onwards is about the fisrt screen*/
+
+/* Card Selection Screen Styles */
+.card-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 10px;
+  background-color: #FFECF1; /* Light Blue */
+}
+
+/* Info Row Styling */
+.info-row {
+  display: flex;
+  max-height: 10%;
+  justify-content: space-between;
+  padding: 0px 0; /* Add some padding for spacing */
+}
+
+.info-cell {
+  width: 32%;
+  max-height: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px; /* Slight rounding for better aesthetics */
+  background-color: #4fb4f8;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-cell strong {
+  font-size: 1em;
+}
+
+.info-cell div {
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+/* Selection Grid Styling */
+.selection-grid {
+  max-height: 60%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 columns */
+  gap: 5px; /* Slight gap between cells */
+  margin-top: 0px; /* Small margin above the grid */
+}
+
+.selection-cell {
+  background-color: #eeeeee;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  border-radius: 3px; /* Slight rounding for smoother look */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover transition */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.selection-cell-user-selected {
+  background-color: green;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  border-radius: 3px; /* Slight rounding for smoother look */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover transition */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.selection-cell-other-selected {
+  background-color: red;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  border-radius: 3px; /* Slight rounding for smoother look */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth hover transition */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.selected-card-grid {
+  max-height: 20%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  gap: 3px; /* Space between cells */
+  row-gap: 0px; /* Adjust this value as needed */
+  width: max-content; /* Adjust width to fit content exactly */
+  margin-left: auto;
+  margin-right: auto; /* Center the grid horizontally */
+}
+
+.selected-card-grid-cell {
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  height: 20px;
+  width: 25px;
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 0.8em;
+  border-radius: 3px;
+}
+
+
+.footer {
+  max-height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.action-button {
+  padding: 15px 30px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.refresh-button {
+  background-color: rgb(3, 97, 134);
+  color: white;
+}
+
+.start-game-button {
+  background-color: orange;
+  color: white;
+}
+
+/* Stylized Cell */
+.selected-card-number {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+
+/* from here onwards is about the playing screen*/
+/* Game Play Screen Styling */
+.game-play {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Game Play Info Row */
+.game-play-info {
+  height: 10%; 
+  background-color: #FFECF1; /* Light Peach */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Game Play Info Cell */
+.game-play-info-cell {
+  width: 15%; /* Adjusted to fit 6 cells in the row */
+  background-color: #4fb4f8;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px; /* Slight rounding for better aesthetics */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the title text inside each game-play-info-cell (span elements) */
+.info-title {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  text-align: center;  /* Centers the text horizontally */
+}
+
+.game-play-info-cell div {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+
+
+
+
+/* Game Content Row */
+.game-content {
+  background-color: #FFECF1; /* Light Blue */
+  display: flex;
+  height: 70%; /* Adjusted height as per your previous requirement */
+}
+
+/* Left Column (40%) */
+.game-content-left {
+  width: 40%;
+  padding: 10px;
+}
+
+/* BINGO Header (1x5 Grid) */
+.bingo-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  max-height: 7%;
+}
+
+.bingo-cell {
+  width: 18%;
+  height: 30px;
+  display: flex;
+  justify-content: center;   /* Horizontally center the content */
+  align-items: center;       /* Vertically center the content */
+  text-align: center;
+  color: white; /* Text color */
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+/* 15x5 Grid */
+.number-grid {
+  padding: 5px;
+  background-color: rgb(254, 245, 233);
+  display: grid;
+  border-radius: 5px;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(15, 1fr); /* 15 rows */
+  gap: 5px;
+  margin-top: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-height: 93%;
+}
+
+.number-grid-cell {
+  display: flex;                    /* Enables Flexbox */
+  justify-content: center;          /* Horizontally center the text */
+  align-items: center;              /* Vertically center the text */
+  text-align: center;
+  height: 23px;
+  background-color: #bebdbd;
+  /* border: 1px solid #ddd; */
+  font-size: 1em;
+  font-weight: 300;
+  color: white;                     /* White text */
+  border-radius: 3px;
+  margin-bottom: 7px; /* Space between cells in a column */
+}
+
+
+
+.number-grid-cell-marked {
+  display: flex;                    /* Enables Flexbox */
+  justify-content: center;          /* Horizontally center the text */
+  align-items: center;              /* Vertically center the text */
+  text-align: center;
+  height: 23px;
+  background-color: rgba(239, 79, 4, 0.7);
+  /* border: 1px solid #ddd; */
+  font-size: 1em;
+  font-weight: 300;
+  color: white;                     /* White text */
+  border-radius: 3px;
+  margin-bottom: 7px; /* Space between cells in a column */
+}
+
+/* Flashing effect for cells */
+.number-grid-cell-flashing {
+  background-color: green;
+  /* animation: flash 4s infinite; */
+  /* Adjust the timing for the flash */
+}
+
+@keyframes flash {
+  0% {
+      background-color: green;
+  }
+  /* Start with yellow */
+  50% {
+      background-color: red;
+  }
+  /* Change to orange */
+  100% {
+      background-color: orange;
+  }
+  /* Back to yellow */
+}
+
+
+
+
+/* Right Column (60%) */
+.game-content-right {
+  width: 60%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Countdown Section (10%) */
+.countdown {
+  height: 13%;
+  background-color: lightyellow;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Keeps content spaced out (if needed) */
+  align-items: center; /* Vertically centers the content */
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.countdown-value{
+  font-size: 30px;
+}
+
+/* Current Call Section (15%) */
+.current-call {
+  color: white;
+  height: 10%;
+  padding: 5px;
+  font-weight: bold;
+  display: flex;
+  /* Use flexbox to align items */
+  justify-content: space-between;
+  /* Space items on opposite ends */
+  align-items: center;
+  /* Center vertically */
+  background-color: darkmagenta;
+  /* Glassy effect */
+  border-radius: 20px;
+  /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Shadow for depth */
+}
+
+/* Styling for circle number (current call number) */
+.circle-number {
+  background-color: orange;
+  /* Circle color */
+  color: white;
+  /* Text color */
+  font-size: 24px;
+  /* Font size for the text */
+  font-weight: bold;
+  /* Bold text */
+  width: 60px;
+  /* Circle diameter */
+  height: 60px;
+  /* Circle diameter */
+  border-radius: 50%;
+  /* Make it a circle */
+  display: flex;
+  /* Flexbox to center the text */
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  position: relative;
+  /* Positioning context for overflow */
+  top: -10%;
+  /* Slightly move the circle up */
+  left: 15%;
+  margin: 0 auto;
+  /* Center it horizontally */
+  padding-right: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* Add shadow for depth */
+}
+
+
+
+/* Recent Calls Section (10%) */
+.recent-calls {
+  height: 13%;
+  background-color: lightcoral;
+  padding: 10px;
+  display: flex;
+  /* Use flexbox for the layout */
+  justify-content: space-between;
+  /* Space out the cells evenly */
+  align-items: center;
+  /* Center the cells vertically */
+  border-radius: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.recent-call-cell {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Slightly transparent white */
+  color: white;
+  /* Text color */
+  border-radius: 50%;
+  font-size: 12px;
+  /* Adjusted font size for the call numbers */
+  font-weight: bold;
+  /* Bold text */
+  width: 40px;
+  /* Adjusted cell width */
+  height: 40px;
+  /* Adjusted cell height */
+  display: flex;
+  /* Flexbox for centering text */
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+  margin: 0 5px;
+  /* Add margin to create spacing between cells */
+}
+
+
+
+
+
+/* Game Card Section (65%) */
+.game-card {
+  height: 61%;
+  background-color: rgb(195, 196, 197);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Game Card Header */
+.game-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.game-card-header .bingo-cell {
+  width: 16%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+/* Game Card 5x5 Grid */
+.game-card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(5, 1fr);   /* 5 rows */
+  gap: 5px;
+  margin-bottom: 6px;
+}
+.game-card-cell {
+  display: flex;              /* Use flexbox to enable centering */
+  justify-content: center;    /* Horizontally center the text */
+  align-items: center;        /* Vertically center the text */
+  text-align: center;         /* Ensure the text is centered horizontally */
+  height: 40px;
+  background-color: #f0f0f0;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for smooth transition */
+}
+
+.game-card-cell.marked {
+  background-color: green; /* Marked color */
+  color: white; /* White text on marked cells */
+}
+
+
+/* Footer */
+.game-card-footer {
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+
+
+
+
+
+/* Bingo Button Section */
+.bingo-button-section {
+  height: 10%;
+  background-color: #FFECF1; /* Light Blue */
+  display: flex;              /* Use flexbox to enable centering */
+  justify-content: center;    /* Horizontally center the text */
+  align-items: center; 
+}
+
+.bingo-button {
+  background-color: orange;
+  /* Button color */
+  color: white;
+  /* Text color */
+  font-size: 1.5em;
+  /* Adjust font size for emphasis */
+  font-weight: bold;
+  border: none;
+  /* Remove default border */
+  border-radius: 50px;
+  /* Rounded corners */
+  padding: 15px 30px;
+  /* Padding for size */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  width: 80%;
+  /* Occupy most of the row */
+  height: 60%;
+  /* Adjust height to fit row */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+  margin: auto;
+  /* Center the button */
+  display: flex;
+  /* Center text horizontally and vertically */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  /* Smooth transform for hover */
+}
+
+
+/* Footer Section */
+.game-play-footer {
+  height: 10%;
+  background-color: #FFECF1; /* Light Pink */
+  display: flex;              /* Use flexbox to enable centering */
+  justify-content: center;    /* Horizontally center the text */
+  align-items: center; 
+}
+
+
+
+.game-play-refresh-button {
+  flex: 1;
+  /* Each button takes equal space */
+  font-size: 1.2em;
+  /* Slightly larger font */
+  font-weight: bold;
+  color: white;
+  /* White text */
+  border: none;
+  /* Remove default border */
+  border-radius: 50px;
+  /* Rounded corners */
+  padding: 10px 20px;
+  /* Padding for size */
+  cursor: pointer;
+  margin: 0 10px;
+  /* Space between buttons */
+  height: 50%;
+  /* Adjust height to fit row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+  transition: transform 0.2s ease;
+  /* Smooth transform on hover */
+  background-color: #3498db;
+}
+
+.game-play-leave-button {
+  flex: 1;
+  /* Each button takes equal space */
+  font-size: 1.2em;
+  /* Slightly larger font */
+  font-weight: bold;
+  color: white;
+  /* White text */
+  border: none;
+  /* Remove default border */
+  border-radius: 50px;
+  /* Rounded corners */
+  padding: 10px 20px;
+  /* Padding for size */
+  cursor: pointer;
+  margin: 0 10px;
+  /* Space between buttons */
+  height: 50%;
+  /* Adjust height to fit row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+  transition: transform 0.2s ease;
+  /* Smooth transform on hover */
+  background-color: #e74c3c;
+}
+
+
+
+
+
+
+
+/* from here onwards is about the modals screen*/
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 10%; /* Starts below the top 10% */
+  left: 0;
+  width: 100%;
+  height: 90%; /* Covers the lower 90% of the screen */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-content {
+  margin-top: 30%; /* open a small transparent area */
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Card View Header */
+.modal-header {
+  background: linear-gradient(to right, yellow, orange, red);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Play Again Button */
+.play-again-btn {
+  background: orange;
+  color: white;
+  border: none;
+  width: 90%;
+  height: 8%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  /* Adjusted margin to keep it closer */
+  transition: background-color 0.3s;
+}
+/* "X" Symbol styling */
+.game-play-big-x {
+  font-size: 20rem; /* Adjust size as needed */
+  font-weight: bold;
+  color: red; /* Make the "X" red for visibility */
+  margin: 10px 0; /* Space above and below the "X" */
+  line-height: 1; /* Ensures no extra space around the "X" */
+}
+
+
+.game-over-big-bingo {
+  font-size: 36px;
+  margin: 0;
+}
+
+.game-over-small-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+
+.modal h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.modal p {
+  margin-bottom: 20px;
+}
+
+.close-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #64b5f6; /* Light blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Show Modal Class */
+.show-modal {
+  display: flex; /* Display modal with flex layout */
+}
+
+.game-over-mid-container{
+  margin-left: 25px;
+  margin-right: 25px;  
+  background-color: rgb(195, 196, 197);
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.2);  
+}
+
+.game-over-bingo-header{
+  margin-top: 10px;
+  display: flex;            /* Set to flex to align items in a row */
+  justify-content: space-between; /* Distribute cells evenly across the row */
+  width: 100%; 
+  padding-top: 10px; 
+  padding-left: 15px;
+  padding-right: 15px; 
+  margin-bottom: 10px;
+}
+
+
+/* BINGO header cell styling */
+.game-over-bingo-header-cell {
+  gap: 5px;
+  width: 15%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  margin: 2px;  
+  font-size: 1.2em;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+/* Unique colors for each letter */
+.game-over-bingo-header-cell.B { background-color: orange; }
+.game-over-bingo-header-cell.I { background-color: lightgreen; }
+.game-over-bingo-header-cell.N { background-color: lightblue; }
+.game-over-bingo-header-cell.G { background-color: red; }
+.game-over-bingo-header-cell.O { background-color: purple; }
+
+
+/* Grid Container */
+.game-over-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  row-gap: 5px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;  
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Grid Cell Styles */
+.game-over-grid-cell {
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  text-align: center; /* Ensures text is centered within the cell */
+  height: 45px; /* Adjust height as needed */
+  background-color: #f0f0f0; /* Example background color */
+  border-radius: 5px; /* Optional styling */
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for smooth transition */
+
+}
+
+
+.game-over-marked-grid-cell {
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  text-align: center; /* Ensures text is centered within the cell */
+  height: 45px; /* Adjust height as needed */
+  background-color: rgb(128, 106, 106); /* Example background color */
+  color: white;
+  border-radius: 5px; /* Optional styling */
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for smooth transition */
+}
+
+.game-over-marked-and-called-grid-cell {
+  background: green;
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  text-align: center; /* Ensures text is centered within the cell */
+  height: 45px; /* Adjust height as needed */
+  color: white;
+  border-radius: 5px; /* Optional styling */
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for smooth transition */
+}
+
+.game-over-marked-and-called-grid-cell-last-cell {
+  background: rgb(56, 231, 8);
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  text-align: center; /* Ensures text is centered within the cell */
+  height: 45px; /* Adjust height as needed */
+  color: white;
+  border-radius: 5px; /* Optional styling */
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for smooth transition */
+}
+
+.game-over-modal-footer-card-number {
+  margin-top: 5px;
+  background-color: #4CAF50; /* Green color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for space around the text */
+  font-size: 1em; /* Adjust font size as needed */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center the text */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: inline-block; /* Makes the element fit its content */
+}
+
+/* Toast styling */
+.toast {
+  visibility: hidden; /* Hide by default */
+  width: 80%;
+  max-width: 80%;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 12px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Fade effect */
+}
+
+/* Show toast animation */
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}
